@@ -1,0 +1,23 @@
+package extractInterface;
+
+public class FireballAttack implements Attack {
+
+    private final int damage;
+    private final int manaRequired;
+
+    public FireballAttack(int fireballDamage, int fireballManaRequired) {
+        this.damage = fireballDamage;
+        this.manaRequired = fireballManaRequired;
+    }
+
+    public String attack(GameCharacter attacker, GameCharacter target) {
+        if (attacker.useMana(manaRequired)) {
+            target.takeDamage(damage);
+            return attacker.getName() + " hit " + target.getName() + " with a fireball for "
+                    + damage + " points of damage";
+        } else {
+            return attacker.getName() + " did not have enough mana for a fireball attack";
+            }
+        }
+}
+
